@@ -1,0 +1,77 @@
+//1. Create server.js file
+
+
+
+//2. Initialize npm and install dependencies.
+//express, dotenv, cors, mongodb, ejs, nodemon (--save-dev)
+-  npm init (node package manager installation) this installs the package.json file
+   go to server.js file and in Git Bash type npm init
+-  npm install express (installs node modules)
+-  npm install dotenv (installs env files - this is where we hides the secret stuff, here we put database passwords or important data we don't want to upload/share)
+-  npm install cors (helps us bypass cors errors- cross origin request blocks)
+-  npm install mongodb (sets our database connection)
+-  npm install ejs (installs ejs - templating language)
+-  npm install nodemon --save -dev(helps you from manually restarting the server - restarts server automatically, the -dev is for development purposes not production)
+
+
+//3. Require dependencies in server.js
+-  we setup our dependencies on top of our server.js file so we can access them
+-  const express = require ('express')
+-  const app = express()
+-  const cors = require('cors')
+-  const MongoClient = require('mongodb').MongoClient
+-  require('dotenv').config()
+
+
+Pushing to GitHub
+- go to github and setup a repository
+- create a .gitignore file. In this file type node_modules, this prevents this file from being pushed to github.
+
+  on the server.js file type in the terminal....
+- git init (initializes and empty git repository)
+- git add README.md
+- git commit -m "first commit"
+- git branch -M main
+- git remote add origin https://github.com/iortega47/full-stack-test.git
+- git push -u origin main
+
+
+//4. Declare variables
+
+
+
+//5. Connect to MongoDB  -  add connection string to .env file
+
+
+
+//6. Create Port
+
+
+// ----- Test MongoDB and Port connection
+
+
+
+//7. Set middleware
+
+
+
+//8. Create gitignore file.
+
+
+
+//9. Create Public and Views folders - add main.js and style.css to Public and index.ejs to Views.
+
+
+
+//10. From root, init local git repo and commit
+
+
+
+//11. Create heroku repo
+
+
+//heroku login
+//heroku create simple-rap-api
+// echo "web: node server.js" > Procfile
+// git add
+//git commit changes
