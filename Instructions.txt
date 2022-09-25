@@ -34,6 +34,7 @@ Pushing to GitHub
 - git commit -m "first commit"
 - git branch -M main
 - git remote add origin https://github.com/iortega47/full-stack-test.git
+  (the origin is your repository name)
 - git push -u origin main
 
 - create a .env file (in this file we hide all the secret things)
