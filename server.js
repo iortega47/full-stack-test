@@ -6,5 +6,12 @@ require('dotenv').config()
 
 let db,
     dbConnectioString = process.env.DB_STRING,
-    ddName = ''
+    dbName = 'sample_full_stack'
     collection
+
+    MongoClient.connect(dbConnectioString)
+        .then(client => {
+            console.log('Connected to Database')
+            db = client.db(dbName)
+            collection = db.collection('userNames')
+        })

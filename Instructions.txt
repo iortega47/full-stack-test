@@ -29,19 +29,25 @@ Pushing to GitHub
 
   on the server.js file type in the terminal....
 - git init (initializes and empty git repository)
+- git add .
 - git add README.md
 - git commit -m "first commit"
 - git branch -M main
 - git remote add origin https://github.com/iortega47/full-stack-test.git
 - git push -u origin main
 
+- create a .env file (in this file we hide all the secret things)
+
 
 //4. Declare variables
-
+- let db,
+    dbConnectioString = process.env.DB_STRING,
+    ddName = ''
+    collection
 
 
 //5. Connect to MongoDB  -  add connection string to .env file
-
+- mongodb connection string(DB_STRING = mongodb+srv://iortega:mana47@cluster0.zlipmwe.mongodb.net/?retryWrites=true&w=majority)
 
 
 //6. Create Port
