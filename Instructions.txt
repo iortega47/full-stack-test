@@ -11,7 +11,7 @@
 -  npm install cors (helps us bypass cors errors- cross origin request blocks)
 -  npm install mongodb (sets our database connection)
 -  npm install ejs (installs ejs - templating language)
--  npm install nodemon --save -dev(helps you from manually restarting the server - restarts server automatically, the -dev is for development purposes not production)
+-  npm install nodemon --save-dev(helps you from manually restarting the server - restarts server automatically, the -dev is for development purposes not production)
 
 
 //3. Require dependencies in server.js
@@ -43,42 +43,63 @@ Pushing to GitHub
 //4. Declare variables
 - let db,
     dbConnectioString = process.env.DB_STRING,
-    ddName = ''
+    dbName = 'sample_full_stack' //this is you database name from mongodb
     collection
+
+    MongoClient.connect(dbConnectioString)
+        .then(client => {
+            console.log('Connected to Database')
+            db = client.db(dbName)
+            collection = db.collection('userNames') //this is you database collections name from mongodb
+        })
 
 
 //5. Connect to MongoDB  -  add connection string to .env file
 - mongodb connection string(DB_STRING = mongodb+srv://iortega:mana47@cluster0.zlipmwe.mongodb.net/?retryWrites=true&w=majority)
 
+//6. Add .env file to .gitignore
 
-//6. Create Port
+
+//7. Create Port
+- add port number to the .env file (PORT = 4700)
+
+In the server.js file type the following
+- app.listen(process.env.PORT || PORT)
+(process.env.PORT points to out .env file to get the PORT number)
+(PORT lets heroku pick a port for us)
 
 
 // ----- Test MongoDB and Port connection
+Since we are using nodemon, we need to write a script in the package.json file so that we dont have to
+manually start(node server.js) and stop(ctrl + c) our server.
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js" //this is what we need to add to scripts.
+    (to test connection type in the terminal npm run dev)
 
 
 
 //7. Set middleware
+- app.set('view engine', 'ejs') // setting up our view engine to be ejs to be use as a template to spit out html.
+- app.use(express.static('public')) //seting up a folder to hold the html, css, main.js files to be accessed by our app.
+- app.use(express.urlencoded({extended:true})) // helps us parse urls
+- app.use(express.json()) //helps express parse the jason and it aloows us to understand the data being sent back and forth 
+- app.use(cors()) //allows for cross origin request and stops the cors error from happening in the browser
 
 
-
-//8. Create gitignore file.
-
+//8. Create Public and Views folders - add main.js and style.css to Public and index.ejs to Views.
 
 
-//9. Create Public and Views folders - add main.js and style.css to Public and index.ejs to Views.
+//9. Add content to main.js, style.css, and index.ejs
 
 
-
-//10. From root, init local git repo and commit
-
-
-
-//11. Create heroku repo
+//10. Create heroku repo
 
 
 //heroku login
-//heroku create simple-rap-api
+//heroku create
 // echo "web: node server.js" > Procfile
 // git add
 //git commit changes
