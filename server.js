@@ -26,7 +26,7 @@ app.use(express.json()) //helps express parse the jason and it aloows us to unde
 app.use(cors()) //allows for cross origin request and stops the cors error from happening in the browser
 
 
-app.get('/', async (req, res) => {
+app.get('/', async (request, response) => {
     try {
         response.render('index.ejs')
     } catch (error) {
